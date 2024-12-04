@@ -13,8 +13,39 @@
     ></script>
   </head>
   <body>
+    <!-- Accordion menu -->
     <div
-      class="bg-hero-background-light dark:bg-hero-background-dark h-screen bg-cover bg-bottom bg-no-repeat px-4 py-6 sm:px-8 sm:py-10"
+      id="accordion-wrapper"
+      class="fixed left-0 top-0 z-50 hidden h-screen w-screen backdrop-blur-sm backdrop-brightness-75"
+    >
+      <div
+        id="accordion-menu"
+        class="fixed right-4 top-4 w-full max-w-xs rounded-md bg-white p-6 text-slate-900 shadow-md dark:bg-slate-800 dark:text-slate-400"
+      >
+        <button id="close-btn" class="absolute right-5 top-5 h-8 w-8">
+          <i class="fa-solid fa-x"></i>
+        </button>
+        <ul class="flex flex-col gap-6 font-semibold">
+          <li><a class="hover:text-sky-400" href="">Docs</a></li>
+          <li><a class="hover:text-sky-400" href="">Components</a></li>
+          <li><a class="hover:text-sky-400" href="">Blog</a></li>
+          <li><a class="hover:text-sky-400" href="">Showcase</a></li>
+          <li><a class="hover:text-sky-400" href="">GitHub</a></li>
+        </ul>
+        <div
+          class="mt-6 flex items-center justify-between border-t border-slate-200 pt-6 dark:border-slate-700"
+        >
+          <p>Switch theme</p>
+          <button
+            class="toggle-theme-btn flex h-8 w-8 items-center justify-center text-blue-400"
+          >
+            <i class="button-icon fa-regular fa-sun text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-screen bg-hero-background-light bg-cover bg-bottom bg-no-repeat px-4 py-6 sm:px-8 sm:py-10 dark:bg-hero-background-dark"
     >
       <div class="flex justify-between">
         <svg
@@ -48,10 +79,9 @@
               class="ml-6 flex items-center gap-4 border-l border-slate-300 pl-6 text-lg dark:border-slate-800"
             >
               <button
-                id="toggle-theme-btn"
-                class="flex h-6 w-6 items-center justify-center text-blue-400"
+                class="toggle-theme-btn flex h-6 w-6 items-center justify-center text-blue-400"
               >
-                <i id="button-icon" class="fa-regular fa-sun"></i>
+                <i class="button-icon fa-regular fa-sun"></i>
               </button>
               <a href="" class="text-slate-400 hover:text-slate-300">
                 <i
@@ -65,6 +95,7 @@
           >
             <i class="fa-solid fa-magnifying-glass"></i></button
           ><button
+            id="open-btn"
             class="h-6 w-6 text-slate-500 hover:text-slate-300 sm:hidden"
           >
             <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -78,20 +109,20 @@
           Rapidly build modern websites without ever leaving your HTML.
         </h1>
         <p
-          class="mx-auto mt-6 max-w-3xl text-lg text-slate-800 dark:text-slate-400"
+          class="mx-auto mt-6 max-w-3xl text-lg text-slate-600 dark:text-slate-400"
         >
           A utility-first CSS framework packed with classes like
-          <code class="font-mono font-semibold text-sky-500 dark:text-sky-400"
+          <code class="font-mono font-medium text-sky-500 dark:text-sky-400"
             >flex</code
           >,
-          <code class="font-mono font-semibold text-sky-500 dark:text-sky-400"
+          <code class="font-mono font-medium text-sky-500 dark:text-sky-400"
             >pt-4</code
           >,
-          <code class="font-mono font-semibold text-sky-500 dark:text-sky-400"
+          <code class="font-mono font-medium text-sky-500 dark:text-sky-400"
             >text-center</code
           >
           and
-          <code class="font-mono font-semibold text-sky-500 dark:text-sky-400"
+          <code class="font-mono font-medium text-sky-500 dark:text-sky-400"
             >rotate-90</code
           >
           that can be composed to build any design, directly in your markup.

@@ -1,15 +1,32 @@
-const toggleThemeBtn = document.getElementById("toggle-theme-btn");
-const icon = document.getElementById("button-icon");
+const toggleThemeButtons = document.querySelectorAll(".toggle-theme-btn");
+const buttonIcons = document.querySelectorAll(".button-icon");
+const menu = document.getElementById("accordion-menu");
+const menuWrapper = document.getElementById("accordion-wrapper");
+const closeBtn = document.getElementById("close-btn");
+const openBtn = document.getElementById("open-btn");
 
-document.documentElement.classList.remove("dark"); // force light mode on page load
-let theme = "dark";
+console.log(toggleThemeButtons);
 
-toggleThemeBtn.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
-  toggleButtonIcon();
+toggleThemeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    toggleButtonIcon();
+  });
 });
 
 function toggleButtonIcon() {
-  icon.classList.toggle("fa-sun");
-  icon.classList.toggle("fa-moon");
+  buttonIcons.forEach((icon) => {
+    icon.classList.toggle("fa-sun");
+    icon.classList.toggle("fa-moon");
+  });
+}
+
+openBtn.addEventListener("click", () => toggleMenu());
+closeBtn.addEventListener("click", () => toggleMenu());
+menuWrapper.addEventListener("click", (e) => {
+  if (e.target == menuWrapper) toggleMenu();
+});
+
+function toggleMenu() {
+  menuWrapper.classList.toggle("hidden");
 }
